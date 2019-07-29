@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import com.eis.dailycallregister.Fragment.DCREntry;
+import com.eis.dailycallregister.Fragment.Elearn;
 import com.eis.dailycallregister.Fragment.Help;
 import com.eis.dailycallregister.Fragment.MTPConfirmation;
 import com.eis.dailycallregister.Fragment.Options;
@@ -123,6 +124,8 @@ public class HomeActivity extends AppCompatActivity
             displaySelectedScreen(R.id.nav_mtp);
         } else if (getIntent().getStringExtra("openfrag").equalsIgnoreCase("visitplansum")) {
             displaySelectedScreen(R.id.nav_vps);
+        } else if (getIntent().getStringExtra("openfrag").equalsIgnoreCase("elearn")) {
+            displaySelectedScreen(R.id.nav_elearn);
         }
     }
 
@@ -217,6 +220,10 @@ public class HomeActivity extends AppCompatActivity
                 break;
             case R.id.nav_logout:
                 logoutAlert();
+                break;
+
+            case R.id.nav_elearn:
+                fragment = new Elearn();
                 break;
         }
 

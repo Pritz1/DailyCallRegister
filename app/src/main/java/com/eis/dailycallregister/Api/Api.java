@@ -31,6 +31,7 @@ import com.eis.dailycallregister.Pojo.NonFieldWrkRes;
 import com.eis.dailycallregister.Pojo.QseraPopUpRes;
 import com.eis.dailycallregister.Pojo.RedicnePopUpRes;
 import com.eis.dailycallregister.Pojo.SampleAndGiftReceiptRes;
+import com.eis.dailycallregister.Pojo.TestResponse;
 import com.eis.dailycallregister.Pojo.VstCardDrLstRes;
 import com.eis.dailycallregister.Pojo.VstPlnDocLstRes;
 import com.eis.dailycallregister.Pojo.VstPlnSumRes;
@@ -642,6 +643,13 @@ public interface Api {
             @Field("netid") String netid,
             @Field("yrmth") String yrmth,
             @Field("prodid") String prodid,
+            @Field("DBPrefix") String dbprefix
+    );
+
+    @FormUrlEncoded
+    @POST("testMaster.php")
+    Call<TestResponse> getTestMaster(
+            @Field("testid") String testid,
             @Field("DBPrefix") String dbprefix
     );
 

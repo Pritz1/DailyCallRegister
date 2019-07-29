@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -52,7 +53,8 @@ import retrofit2.Response;
 
 public class Options extends Fragment {
 
-    MaterialButton dcr, mtp, uploadcard, vps;
+    MaterialButton dcr, mtp, uploadcard, vps;//elearn;
+    ImageView elearn;
     ViewDialog progressDialoge;
     List<MisscalldrsItem> misscall = new ArrayList<>();
     LinearLayout menuoptions;
@@ -77,6 +79,8 @@ public class Options extends Fragment {
         dcr = view.findViewById(R.id.dcr);
         mtp = view.findViewById(R.id.mtp);
         vps = view.findViewById(R.id.vps);
+        elearn = view.findViewById(R.id.elearn);
+
         menuoptions = view.findViewById(R.id.menuoptions);
         progressDialoge = new ViewDialog(getActivity());
         mTableLayout = view.findViewById(R.id.tableLayout);
@@ -166,6 +170,23 @@ public class Options extends Fragment {
                 } else {
                     new Global().notAllowed(getActivity());
                 }
+            }
+        });
+
+        elearn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //new Global().notAllowed(getActivity());
+
+                    Intent intent = new Intent(getActivity(), HomeActivity.class);
+                    intent.putExtra("ecode", Global.ecode);
+                    intent.putExtra("date", Global.date);
+                    intent.putExtra("dbprefix", Global.dbprefix);
+                    intent.putExtra("openfrag", "elearn");
+                    Bundle bndlanimation = ActivityOptions.makeCustomAnimation(getActivity(), R.anim.trans_left_in, R.anim.trans_left_out).toBundle();
+                    startActivity(intent, bndlanimation);
+                    getActivity().finish();
+
             }
         });
 
